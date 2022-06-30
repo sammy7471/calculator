@@ -33,4 +33,13 @@ function operate(num1, operator, num2) {
     }
 }
 
+let displayValue = 0;
+let displayArea = document.getElementById("display");
 
+const buttons = document.querySelectorAll("#number");
+buttons.forEach((number) => {
+    number.addEventListener("click", (e) => {
+        displayValue = e.target.innerText;
+        displayArea.innerText = displayValue;
+    })
+})

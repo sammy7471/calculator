@@ -1,32 +1,22 @@
 // javascript
 
-function add(numbers) {
-    const sum = numbers.reduce((total, item) => {
-        return total + item;
-    },0);
-    return sum;
+function add(num1, num2) {
+    let result = num1 + num2;
+    return result;
 }
 
-function subtract(numbers) {
-    const sub = numbers.reduce((total, item) => {
-        return total - item;
-    });
-    return sub;
+function subtract(num1, num2) {
+    let result = num1 - num2;
+    return result;
 }
 
-function multiply(numbers) {
-    const mult = numbers.reduce((total, item) => {
-        return total * item;
-    },1);
-    return mult;
+function multiply(num1, num2) {
+    let result = num1 * num2;
+    return result;
 }
 
-function divide(numbers) {
-    const divide = numbers.reduce((total, item) => {
-        return total / item;
-    });
-    return divide;
+function divide(num1, num2) {
+    let result = num1 / num2;
+    return result;
 }
 
-function operate() {
-}

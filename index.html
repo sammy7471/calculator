@@ -7,25 +7,27 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div id="contaner">
-            <div id="buttton-container">
-                <button class="operator" data-action="add">+</button>
-                <button class="operator" data-action="subtract">-</button>
-                <button class="operator" data-action="multiply">*</button>
-                <button class="operator" data-action="divide">/</button>
-                <button>7</button>
-                <button>8</button>
-                <button>9</button>
-                <button>4</button>
-                <button>5</button>
-                <button>6</button>
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>0</button>
+        <div id="container">
+            <div id="display">0</div>
+            <div id="keys">
+                <button value="+" class="operator" data-action="add">+</button>
+                <button value="-" class="operator" data-action="subtract">-</button>
+                <button value="*" class="operator" data-action="multiply">*</button>
+                <button value="/" class="operator" data-action="divide">/</button>
+                <button id="number">7</button>
+                <button id="number">8</button>
+                <button id="number">9</button>
+                <button id="number">4</button>
+                <button id="number">5</button>
+                <button id="number">6</button>
+                <button id="number">1</button>
+                <button id="number">2</button>
+                <button id="number">3</button>
+                <button id="number">0</button>
                 <button data-action="decimal">.</button>
-                <button data-action="clear">AC</button>
-                <button class="equal" data-action="calculate"></button>
+                <button class="clear" data-action="clear">AC</button>
+                <button class="equal" data-action="calculate">=</button>
+                <button data-action="percentage">%</button>
             </div>
         </div>
     </body>

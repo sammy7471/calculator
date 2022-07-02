@@ -26,6 +26,9 @@ const operators = document.querySelectorAll(".operator");
 const equal = document.querySelector(".equal");
 const deletes = document.querySelector(".delete");
 const clear = document.querySelector(".clear");
+const decimal = document.querySelector(".decimal");
+const percentage = document.querySelector(".percentage");
+displayArea.textContent = 0;
 
 function operate(num1, operator, num2) {
     let result = 0;
@@ -62,6 +65,7 @@ operators.forEach((op) => {
 numbers.forEach((number) => {
     number.addEventListener("click", (e) => {
         if (operator === "") {
+            displayArea.innerText = 0;
             num1 += e.target.innerText;
             displayArea.innerText = num1;
         } else {
@@ -74,7 +78,13 @@ numbers.forEach((number) => {
 equal.addEventListener("click", (e) => {
     if (e.target.innerText = "=") {
         displayArea.innerText = num2;
-        let result = operate(num1, operator, num2);
+        let result = parseFloat(operate(num1, operator, num2));
         displayArea.innerText = result;
     }
-})
+});
+
+clear.addEventListener("click", () => {
+    num1 = "";
+    num2 = "";
+    displayArea.innerText = 0;
+});

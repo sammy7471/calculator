@@ -30,7 +30,7 @@ const decimal = document.querySelector(".decimal");
 const percentage = document.querySelector(".percentage");
 displayArea.textContent = 0;
 
-function operate(num1, operator, num2) {
+function operate(num2, operator, num1) {
     let result = 0;
     switch (operator) {
         case '+':
@@ -56,29 +56,31 @@ let num2 = "";
 let operator = "";
 operators.forEach((op) => {
     op.addEventListener("click", (e) => {
-        operator = e.target.innerText;
-        displayArea.innerText = num1;
-        return operator;
-    });
+        if (operator !== "") {
+            num2 = operate(num1, operator, num2);
+            displayArea.innerText = num2;
+            num1 = "";
+            operator = e.target.innerText;
+            return operator;
+        } else {
+            operator = e.target.innerText;
+            num2 = num1;
+            num1 = "";
+            return operator;
+        }
+    }); 
 });
 
 numbers.forEach((number) => {
     number.addEventListener("click", (e) => {
-        if (operator === "") {
-            displayArea.innerText = 0;
-            num1 += e.target.innerText;
-            displayArea.innerText = num1;
-        } else {
-            num2 += e.target.innerText;
-            displayArea.innerText = num2;
-        }
+        num1 += e.target.innerText;
+        displayArea.innerText = num1;
     });
 });
 
 equal.addEventListener("click", (e) => {
     if (e.target.innerText = "=") {
-        displayArea.innerText = num2;
-        let result = parseFloat(operate(num1, operator, num2));
+        let result = operate(num1, operator, num2);
         displayArea.innerText = result;
     }
 });
@@ -86,5 +88,10 @@ equal.addEventListener("click", (e) => {
 clear.addEventListener("click", () => {
     num1 = "";
     num2 = "";
+    operator = "";
     displayArea.innerText = 0;
 });
+
+decimal.addEventListener("click", () => {
+   
+})

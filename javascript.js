@@ -95,9 +95,17 @@ del.addEventListener("click", (e) => {
         num1 = num1.substring(0, num1.length -1);
         updateDisplay(num1);
     }
-})
+});
 
 function updateDisplay(displayValue) {
     displayArea.innerText = displayValue;
     return displayArea.innerText;
 }
+
+decimal.addEventListener("click", (e) => {
+    if (e.target.innerText = ".") {
+        if (!num1.includes(".")) {
+            updateDisplay(num1 += ".");
+        } 
+    }
+});

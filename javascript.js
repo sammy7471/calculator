@@ -1,22 +1,22 @@
 // javascript
 
 function add(num1, num2) {
-    let result = parseInt(num1) + parseInt(num2);
+    let result = parseFloat(num1) + parseFloat(num2);
     return result;
 }
 
 function subtract(num1, num2) {
-    let result = parseInt(num1) - parseInt(num2);
+    let result = parseFloat(num1) - parseFloat(num2);
     return result;
 }
 
 function multiply(num1, num2) {
-    let result = parseInt(num1) * parseInt(num2);
+    let result = parseFloat(num1) * parseFloat(num2);
     return result;
 }
 
 function divide(num1, num2) {
-    let result = parseInt(num1) / parseInt(num2);
+    let result = parseFloat(num1) / parseFloat(num2);
     return result;
 }
 
@@ -24,11 +24,9 @@ const displayArea = document.querySelector("#display");
 const numbers = document.querySelectorAll("#number");
 const operators = document.querySelectorAll(".operator");
 const equal = document.querySelector(".equal");
-const deletes = document.querySelector(".delete");
+const del = document.querySelector(".delete");
 const clear = document.querySelector(".clear");
 const decimal = document.querySelector(".decimal");
-const percentage = document.querySelector(".percentage");
-displayArea.textContent = 0;
 
 function operate(num2, operator, num1) {
     let result = 0;
@@ -58,7 +56,7 @@ operators.forEach((op) => {
     op.addEventListener("click", (e) => {
         if (operator !== "") {
             num2 = operate(num1, operator, num2);
-            displayArea.innerText = num2;
+            updateDisplay(num2);
             num1 = "";
             operator = e.target.innerText;
             return operator;
@@ -74,14 +72,14 @@ operators.forEach((op) => {
 numbers.forEach((number) => {
     number.addEventListener("click", (e) => {
         num1 += e.target.innerText;
-        displayArea.innerText = num1;
+        updateDisplay(num1);
     });
 });
 
 equal.addEventListener("click", (e) => {
     if (e.target.innerText = "=") {
         let result = operate(num1, operator, num2);
-        displayArea.innerText = result;
+        updateDisplay(result);
     }
 });
 
@@ -92,6 +90,14 @@ clear.addEventListener("click", () => {
     displayArea.innerText = 0;
 });
 
-decimal.addEventListener("click", () => {
-   
+del.addEventListener("click", (e) => {
+    if (e.target.innerText = "DEL") {
+        num1 = num1.substring(0, num1.length -1);
+        updateDisplay(num1);
+    }
 })
+
+function updateDisplay(displayValue) {
+    displayArea.innerText = displayValue;
+    return displayArea.innerText;
+}

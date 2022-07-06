@@ -1,26 +1,52 @@
 /* style.css */
-
 #container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    height: 500px;
+    margin: 30px;
 }
 
-.display {
-    text-align: right;
-    display: block;
-    height: 100px;
-    border: 1px solid black;
-    border: 1px solid black;
+#display {
+    display: flex;
+    border: 3px solid black;
+    width: 410px;
+    height: 70px;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+#keys {
+    position: relative;
+    background-color: black;
+    border: 2px solid black;
 }
 
 button {
-    width: 80px;
+    width: 100px;
     height: 80px;
+    border-width: 1px;
+    background-color: #b39898;
+    font-size: 30px;
+    font-weight: 900;
 }
 
-#section {
-    display: flex;
-    width: 200px;
+.clear {
+    width: 204px;
+    background-color: #03bafc;
+}
+
+.delete {
+    background-color: #03bafc;
+}
+
+.operator {
+    background-color: #b30000;
+}
+
+.equal {
+    width: 204px;
+    background-color: #b30000;
 }

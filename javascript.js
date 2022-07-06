@@ -41,7 +41,11 @@ function operate(num2, operator, num1) {
             result = multiply(num1, num2);
             break;
         case '/':
-            result = divide(num1, num2);
+            if (num2 !== 0) {
+                result = divide(num1, num2);
+            } else {
+                result = "error";
+            }
             break;    
         default:
             break;

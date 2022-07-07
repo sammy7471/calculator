@@ -60,6 +60,7 @@ operators.forEach((op) => {
     op.addEventListener("click", (e) => {
         if (operator !== "") {
             num2 = operate(num1, operator, num2);
+            num2 = +parseFloat(num2).toFixed(2);
             updateDisplay(num2);
             num1 = "";
             operator = e.target.innerText;
@@ -83,6 +84,7 @@ numbers.forEach((number) => {
 equal.addEventListener("click", (e) => {
     if (e.target.innerText = "=") {
         let result = operate(num1, operator, num2);
+        result = +parseFloat(result).toFixed(2);
         updateDisplay(result);
     }
 });
@@ -113,3 +115,4 @@ decimal.addEventListener("click", (e) => {
         } 
     }
 });
+

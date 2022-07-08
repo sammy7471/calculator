@@ -57,44 +57,52 @@ let num1 = "";
 let num2 = "";
 let operator = "";
 operators.forEach((op) => {
-    op.addEventListener("click", (e) => {
-        if (operator !== "") {
-            num2 = operate(num1, operator, num2);
-            num2 = +parseFloat(num2).toFixed(2);
-            updateDisplay(num2);
-            num1 = "";
-            operator = e.target.innerText;
-            return operator;
-        } else {
-            operator = e.target.innerText;
-            num2 = num1;
-            num1 = "";
-            return operator;
-        }
-    }); 
+    op.addEventListener("click", opera); 
 });
+
+function opera(e) {
+    if (operator !== "") {
+        num2 = operate(num1, operator, num2);
+        num2 = +parseFloat(num2).toFixed(2);
+        updateDisplay(num2);
+        num1 = "";
+        operator = e.target.innerText;
+        return operator;
+    } else {
+        operator = e.target.innerText;
+        num2 = num1;
+        num1 = "";
+        return operator;
+    }
+}
 
 numbers.forEach((number) => {
-    number.addEventListener("click", (e) => {
-        num1 += e.target.innerText;
-        updateDisplay(num1);
-    });
+    number.addEventListener("click", numb);
 });
 
-equal.addEventListener("click", (e) => {
+function numb(e) {
+    num1 += e.target.innerText;
+    updateDisplay(num1);
+}
+
+equal.addEventListener("click", calculate);
+
+function calculate(e) {
     if (e.target.innerText = "=") {
         let result = operate(num1, operator, num2);
         result = +parseFloat(result).toFixed(2);
         updateDisplay(result);
     }
-});
+}
 
-clear.addEventListener("click", () => {
+clear.addEventListener("click", clearDisplay);
+
+function clearDisplay(e) {
     num1 = "";
     num2 = "";
     operator = "";
     displayArea.innerText = 0;
-});
+}
 
 del.addEventListener("click", (e) => {
     if (e.target.innerText = "DEL") {
@@ -108,11 +116,12 @@ function updateDisplay(displayValue) {
     return displayArea.innerText;
 }
 
-decimal.addEventListener("click", (e) => {
+decimal.addEventListener("click", dec);
+
+function dec(e) {
     if (e.target.innerText = ".") {
         if (!num1.includes(".")) {
             updateDisplay(num1 += ".");
         } 
     }
-});
-
+}
